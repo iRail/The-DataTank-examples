@@ -2,7 +2,7 @@
 
 class Events extends AResource{
 
-     private $file = "modules/GentseFeesten/";
+     private $file = "custom/packages/GentseFeesten/";
      private $day, $hour;
 
      public static function getRequiredParameters(){
