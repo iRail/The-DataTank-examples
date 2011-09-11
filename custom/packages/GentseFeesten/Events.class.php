@@ -62,7 +62,7 @@ class Events extends AResource{
      }
 
      public static function getAllowedPrintMethods(){
-		return array("php","xml","json","jsonp");
+         return array("php","xml","json","jsonp", "html");
      }
      
 }
