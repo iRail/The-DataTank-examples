@@ -41,7 +41,7 @@ class NewsFeed extends AResource{
 	  //2 = location
 	  //3 = message
 	  //4 = time
-	  $result = new stdClass();
+	  $result = array();
 	  $i = 0;
 
 	  foreach($matches as $match){
@@ -51,11 +51,11 @@ class NewsFeed extends AResource{
 	       $cat = str_ireplace("i_bol","info",$cat);
 	       $cat = str_ireplace("werkman","works",$cat);
 
-	       $result->item[$i] = new StdClass();
-	       $result->item[$i]->category = trim(str_replace("\s\s+"," ",strip_tags($cat)));
-	       $result->item[$i]->location = trim(str_replace("\s\s+"," ",strip_tags($match[2])));
-	       $result->item[$i]->message =trim(str_replace("\s\s+"," ",strip_tags($match[3])));
-	       $result->item[$i]->time = Time($this->parseTime(trim(str_replace("\s\s+"," ",strip_tags($match[4])))));
+	       $result[$i] = new StdClass();
+	       $result[$i]->category = trim(str_replace("\s\s+"," ",strip_tags($cat)));
+	       $result[$i]->location = trim(str_replace("\s\s+"," ",strip_tags($match[2])));
+	       $result[$i]->message =trim(str_replace("\s\s+"," ",strip_tags($match[3])));
+	       $result[$i]->time = Time($this->parseTime(trim(str_replace("\s\s+"," ",strip_tags($match[4])))));
 	       $i++;
 	  }
 	  return $result;

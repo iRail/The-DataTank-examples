@@ -27,7 +27,6 @@ class Events extends AResource{
      
 
      public function call(){
-	  $b = new stdClass();
           $d = array();
           $row = 0;
 	  $this->file.=$this->day.".csv";
@@ -51,9 +50,7 @@ class Events extends AResource{
 	       }else{
 		    throw new CouldNotGetDataTDTException($this->file);
 	       }
-
-	       $b->event = $d;
-	       return $b;
+	       return $d;
 	  }catch(Exception $ex){
 	       //file kon nie geopend worden, of er verliep iets fout tijdens het lezen van de file    
 	       throw new CouldNotGetDataTDTException($this->file);
