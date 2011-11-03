@@ -7,7 +7,7 @@
  * @author Pieter Colpaert   <pieter@iRail.be>
  */
 
-class Rainfall extends AReader{
+class WeatherRainfall extends AReader{
 
     public static function getParameters(){
 	return array(
