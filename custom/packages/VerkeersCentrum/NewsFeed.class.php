@@ -7,7 +7,7 @@
  * This method of Verkeerscentrum will get the newsfeed of Belgian traffic jams, accidents and works
  */
 
-class NewsFeed extends AResource{
+class NewsFeed extends AReader{
 
      private $lang;
 
@@ -25,7 +25,7 @@ class NewsFeed extends AResource{
 	  }
      }
 
-     public function call(){
+     public function read(){
 	  $data = $this->getData();
 	  return $this->parseData($data);
      }
@@ -81,10 +81,6 @@ class NewsFeed extends AResource{
 	  return mktime($h,$i,0,$m,$d,$y);
      }
      
-
-     public static function getAllowedPrintMethods(){
-	  return array("json","xml", "jsonp", "php", "html");
-     }
 
      public static function getDoc(){
 	  return "This is a function which will return all the latest news";

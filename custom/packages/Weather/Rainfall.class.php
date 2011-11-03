@@ -7,7 +7,7 @@
  * @author Pieter Colpaert   <pieter@iRail.be>
  */
 
-class Rainfall extends AResource{
+class Rainfall extends AReader{
 
     public static function getParameters(){
 	return array(
@@ -24,7 +24,7 @@ class Rainfall extends AResource{
         $this->$key = $val;
     }
 
-    public function call(){
+    public function read(){
         $o = array();
         $options = array("cache-time" => 60*5); //cache this for 5 minutes
         $request = TDT::HttpRequest("http://gps.buienradar.nl/getrr.php?lat=".$this->lat."&lon=" . $this->long, $options);
@@ -41,10 +41,6 @@ class Rainfall extends AResource{
 	return $o;
     }
      
-    public static function getAllowedPrintMethods(){
-	return array("json","xml", "jsonp", "php", "html", "kml");
-    }
-
     public static function getDoc(){
 	return "Will return the amount of predicted rainfall for a certain location for the next couple of hours";
     }

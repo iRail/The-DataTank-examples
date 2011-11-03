@@ -1,6 +1,6 @@
 <?php
 
-class Events extends AResource{
+class GentseFeestenEvents extends AReader{
 
      private $file = "custom/packages/GentseFeesten/";
      private $day, $hour;
@@ -26,7 +26,7 @@ class Events extends AResource{
      }
      
 
-     public function call(){
+     public function read(){
           $d = array();
           $row = 0;
 	  $this->file.=$this->day.".csv";
@@ -58,9 +58,6 @@ class Events extends AResource{
 	  }
      }
 
-     public static function getAllowedPrintMethods(){
-         return array("php","xml","json","jsonp", "html");
-     }
      
 }
 ?>
