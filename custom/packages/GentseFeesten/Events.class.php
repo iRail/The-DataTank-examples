@@ -1,6 +1,6 @@
 <?php
 
-class GentseFeestenEvents extends AReader{
+class GentseFeestenEvents extends AResource{
 
      private $file = "custom/packages/GentseFeesten/";
      private $day, $hour;
@@ -26,7 +26,7 @@ class GentseFeestenEvents extends AReader{
      }
      
 
-     public function read(){
+     public function call(){
           $d = array();
           $row = 0;
 	  $this->file.=$this->day.".csv";

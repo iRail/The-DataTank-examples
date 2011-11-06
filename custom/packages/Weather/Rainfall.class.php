@@ -7,7 +7,7 @@
  * @author Pieter Colpaert   <pieter@iRail.be>
  */
 
-class WeatherRainfall extends AReader{
+class WeatherRainfall extends AResource{
 
     public static function getParameters(){
 	return array(
@@ -24,7 +24,7 @@ class WeatherRainfall extends AReader{
         $this->$key = $val;
     }
 
-    public function read(){
+    public function call(){
         $o = array();
         $options = array("cache-time" => 60*5); //cache this for 5 minutes
         $request = TDT::HttpRequest("http://gps.buienradar.nl/getrr.php?lat=".$this->lat."&lon=" . $this->long, $options);
